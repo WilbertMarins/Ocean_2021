@@ -1,0 +1,25 @@
+* {
+    margin:0;padding:0;background:blue
+}
+
+h1 {
+    font-size:4.0em;margin:10px 10px 20px 10px;color:#6587ac;
+}
+
+.nova{
+	color:#dede0d;background:green;
+}
+.nova2{
+	background:green;
+	
+}
+
+p {
+	font-size:3.5em;
+	margin:80px 10px 80px 10px
+}
+
+a{
+	font-size:4.0em;margin:10px 0 20px 10px;color:red;
+	
+}

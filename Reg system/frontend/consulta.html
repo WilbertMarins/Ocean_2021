@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">		
+		<title>RegsBlock-OCEAN</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="js/web3.min.js"></script>
+		
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="menu">
+				<h2>RegsBlock</h2>
+				
+				<ul>	
+                    <li> <a href="index.html" class="nounderline"> Cadastro </a> </li>
+                    <li> <a href="consulta.html" class="nounderline"> Consulta </a> </li>                  
+                    <li> <a href="sobre.html" class="nounderline"> Sobre </a> </li>
+				</ul>
+			</div>
+					
+
+			<div class="content">
+                	
+        		
+				<div class="content-inner">
+					<div class="header">Consulta do usuário.</div> 
+		
+                    <div class="campos">
+
+						<img id="loader" src="./image/Double Ring-1s-200px.gif">
+						<label for="fID" class="nome-campo">CPF</label>
+						<input id="fID"placeholder="Insira o CPF" class="form-control" type="text">
+					
+						<button id="button2" class ="btn btn-green">Consultar usuário</button>
+					</div>
+					
+					
+					<h4 id="instructor">Os dados do usuário serão mostrados aqui</h4>
+						
+					
+					
+					
+					<div id="barra"> </div>
+					
+				</div>
+
+				<div class="espacamento"></div>
+				
+			</div>
+
+			
+			<br style="clear:both">
+			
+			<div class="footer">
+				Todos os direitos reservados. Dev.: Wilbert Marins
+			</div>
+
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script>
+		//momento de conexão com a rede 
+				if (typeof web3 !== 'undefined') {
+					web3 = new Web3(web3.currentProvider);
+				} else {
+					 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				}
+			 
+		//verifica se alguma carteira digital está conectada  
+			web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+			  console.log(err);
+			}
+			else if (accounts.length === 0) {  //caso não encontre carteiras
+			  console.log('MetaMask is locked');
+			}
+			else {//conecta a carteira de posição "0"
+			 web3.eth.defaultAccount = accounts[0];
+			 //alert(web3.eth.defaultAccount);
+			}
+		   });
+
+			//Declaração das 2 variáveis mais significativa para conexão com o contrato, fiquem atentos!!!!
+			//endereco muda a cada deploy  
+			//==============ALTERAR==============
+		   const endereco = '0xdc328F101261e85067C3eBFf259CD61059Da9BB6';
+
+		   //ABI: o contrato vem em JSON para que possa interpretado
+		   //==============P/ ALTERAR, DEPENDE SE MODIFICAR O CONTRATO PARA TESTE==============
+		   //dados(endereco e ABI) do contrato se matém inalterados após o DEPLOY, pois o contrato não poderá sofre mais alterações
+ 			const abi = [
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nome",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "idade",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "cpf",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "cargo",
+				"type": "string"
+			}
+		],
+		"name": "casoInfo",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_nome",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_idade",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_cpf",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_cargo",
+				"type": "string"
+			}
+		],
+		"name": "inserirCaso",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_id",
+				"type": "string"
+			}
+		],
+		"name": "getCasos",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "casosObtidos",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getQtdCasos",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "length",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "usuario",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "nome",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "idade",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "cpf",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "cargo",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+			//variavel para interpretar o nosso contrato
+			var RBCContract = web3.eth.contract(abi)
+
+			// irá me  irformar que foi efetuado o deply do contrato onde seu hash é
+			var rbc = RBCContract.at(endereco);
+				
+				$("#button2").click(function() {
+					rbc.getCasos($("#fID").val(),function(error, result){
+					if(!error)
+						{
+							$("#instructor").html(result);
+							console.log(result);
+						}
+					else
+						console.error(error);
+					});
+				});
+		
+				
+			</script>
+
+
+	</body>
+	
+</html>

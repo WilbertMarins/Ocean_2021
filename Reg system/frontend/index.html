@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">		
+		<title>RegsBlock-OCEAN</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="js/web3.min.js"></script>
+		
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="menu">
+				<h2>RegsBlock</h2>
+				
+				<ul>	
+                    <li> <a href="index.html" class="nounderline"> Cadastro </a> </li>
+                    <li> <a href="consulta.html" class="nounderline"> Consulta </a> </li>                  
+                    <li> <a href="sobre.html" class="nounderline"> Sobre </a> </li>
+				</ul>
+			</div>
+
+			<div class="content">
+                	
+                <div class="header">Cadastro do usuário.</div> 
+				
+				<div class="content-inner">
+		
+                    <div class="campos">
+
+						<img id="loader" src="./image/Double Ring-1s-200px.gif"">
+						<label for="fNome" class="nome-campo">Nome</label>
+						<input id="fNome" placeholder="Nome" class="form-control" type="text">
+						<label for="fIdade" class="nome-campo">Idade</label>
+						<input id="fIdade" placeholder="Idade" class="form-control" type="text">
+						<label for="fCPF" class="nome-campo">CPF</label>
+						<input id="fCPF" placeholder="CPF" class="form-control" type="text">
+						<label for="fCargo" class="nome-campo">Cargo</label>
+						<input id="fCargo"placeholder="Cargo" class="form-control" type="text">
+
+						<button id="button1" class ="btn btn-green">Registrar usuário</button>
+
+					</div>
+					
+
+					<div class="espacamento"></div>
+				</div>
+				
+			</div>
+
+			
+			<br style="clear:both">
+			
+			<div class="footer">
+				Todos os direitos reservados. Dev.: Wilbert Marins
+			</div>
+
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script>
+		
+				if (typeof web3 !== 'undefined') {
+					web3 = new Web3(web3.currentProvider);
+				} else {
+					 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				}
+			 
+					   
+			web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+			  console.log(err);
+			}
+			else if (accounts.length === 0) {
+			  console.log('MetaMask is locked');
+			}
+			else {
+			 web3.eth.defaultAccount = accounts[0];
+			 //alert(web3.eth.defaultAccount);
+			}
+		   });
+			
+		   const endereco = '0xdc328F101261e85067C3eBFf259CD61059Da9BB6';
+           const abi = [
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nome",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "idade",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "cpf",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "cargo",
+				"type": "string"
+			}
+		],
+		"name": "casoInfo",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_nome",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_idade",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_cpf",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_cargo",
+				"type": "string"
+			}
+		],
+		"name": "inserirCaso",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_id",
+				"type": "string"
+			}
+		],
+		"name": "getCasos",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "casosObtidos",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getQtdCasos",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "length",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "usuario",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "nome",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "idade",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "cpf",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "cargo",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+		   
+
+			var RBCContract = web3.eth.contract(abi)
+
+			var rbc = RBCContract.at(endereco);  
+
+			
+			   var RBCEvent = rbc.casoInfo();
+		
+			   RBCEvent.watch(function (err, result) {
+				if (!err) {
+					alert("cadastro efetuado com sucesso");
+					$("#loader").hide();
+					} else {
+					alert("cadastro não efetuado");
+				}
+				});
+			  
+					 
+				$("#button1").click(function() {
+					$("#loader").show();
+					rbc.inserirCaso($("#fNome").val(), $("#fIdade").val(),$("#fCPF").val(),
+					$("#fCargo").val(),function(error, result){
+					if(!error){
+						console.log("ok");
+						$("#loader").hide();
+					}	
+					else
+						console.error(error);
+						$("#loader").hide();
+					});
+				});
+
+		
+			   
+		
+			</script>
+
+
+
+	</body>
+
+</html>

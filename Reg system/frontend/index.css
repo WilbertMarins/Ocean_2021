@@ -1,0 +1,177 @@
+body, html{
+    margin:0;
+    padding:0;
+}
+.main{
+    max-width:1200px;
+    margin:0 auto;
+    overflow:hidden;
+    background:lightgray;
+}
+.content{
+    float:left;
+    width:100%;
+    margin-right:-10px;
+}
+.content-inner{
+    margin-right:10px;
+}
+.sidebar{
+    background:red;
+    float:right;
+    width:200px;
+}
+.menu{
+    width:100%;
+    background: #33B0E5;
+}
+.menu ul{
+    margin:0; 
+    padding:0;
+}
+.menu ul li{
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    margin:0; 
+    padding:0;
+}
+.menu ul li a{
+    display:block;
+    padding:20px;
+    color:#fff;
+}
+.footer{
+    width:100%;
+    background:yellow;
+    text-align:center;
+}
+
+.main .menu h2{
+color: #fff;
+text-transform: uppercase;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.header{
+padding: 10px;
+background: #fff;
+color: black;
+border-bottom: 1px solid blue;
+}
+
+li a:hover{
+background-color: #1782B0;
+}
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+a.nounderline:link 
+{ 
+text-decoration:none; 
+} 
+
+
+
+
+.btn{
+    font-family:arial;
+    font-size:14px;
+    text-transform:uppercase;
+    font-weigth:700;
+    border:none;
+    padding:5px;
+    cursor:pointer;  
+    display:inline-block;
+    text-decoration:none;
+    margin: 5% 0;
+    width: 30%;
+  }
+  .btn-green{
+    background:green;
+    color:#fff;
+    box-shadow:0 5px 0 #006000;
+  }
+  
+  .btn-green:hover{
+    background:#006000;
+    color:#fff;
+    box-shadow:0 5px 0 #003f00;
+  }
+  
+  .btn-green:active{
+    position:relative;
+    top:5px;
+    box-shadow:none;
+  }
+  
+ 
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #666;
+  }
+
+  input {
+    padding:10px;
+    width: 50%;
+    margin-bottom: 1em;
+   }
+
+   .campos {
+    width: 50%;
+    margin-left: 200px;
+   }
+
+   .descricao{
+    line-height:1.6;
+   }
+
+   #barra {
+    margin: 20px;
+    width: 400px;
+    height: 20px;
+    position: relative;
+  }
+
+  #loader {
+    width: 100px;
+    display:none;
+}
+
+.nome-campo{
+  width: 100%; 
+  padding: 5px;
+  color: black;
+  border-bottom: 1px solid black;
+  }
+
+  .espacamento{
+    padding: 75px;
+    } 
+    
+  .margem-200{
+    margin-left: 200px;
+  }
+
+
+
+  #instructor {
+    padding:10px;
+    background-color:#fff;
+    margin: 10px 0;
+    margin-left: 20px;
+   }
+
+  
+@media screen and (max-width: 700px) {
+    .sidebar, .content-inner, .content{
+        float: none;
+        width: 100%;
+        margin-right:0;
+    }
+}

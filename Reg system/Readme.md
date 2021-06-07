@@ -14,7 +14,7 @@
 
 :small_blue_diamond: [Features](#features)
 
-:small_blue_diamond: [Execução](#execução)
+:small_blue_diamond: [Execução](#execução-de-teste)
 
 :small_blue_diamond: [Links Úteis](#links-úteis)
 

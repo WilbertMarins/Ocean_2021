@@ -240,9 +240,10 @@
 			//variavel para interpretar o nosso contrato
 			var RBCContract = web3.eth.contract(abi)
 
-			// irá me  irformar que foi efetuado o deply do contrato onde seu hash é
+			// irá me  irformar que foi efetuado o deploy do contrato onde seu hash é
 			var rbc = RBCContract.at(endereco);
 				
+				//Uso o Id(#) dos botões e campos para referenciar os valores inseridos
 				$("#button2").click(function() {
 					rbc.getCasos($("#fID").val(),function(error, result){
 					if(!error)

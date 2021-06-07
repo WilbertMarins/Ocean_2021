@@ -64,28 +64,33 @@
 
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 		<script>
-		
+		//momento de conexão com a rede 
 				if (typeof web3 !== 'undefined') {
 					web3 = new Web3(web3.currentProvider);
 				} else {
 					 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 				}
 			 
-					   
+		//verifica se alguma carteira digital está conectada 			   
 			web3.eth.getAccounts(function(err, accounts){
 			if (err != null) {
 			  console.log(err);
 			}
-			else if (accounts.length === 0) {
+			else if (accounts.length === 0) {//caso não encontre carteiras
 			  console.log('MetaMask is locked');
 			}
-			else {
+			else {//conecta a carteira de posição "0"
 			 web3.eth.defaultAccount = accounts[0];
 			 //alert(web3.eth.defaultAccount);
 			}
 		   });
-			
+			//Declaração das 2 variáveis mais significativa para conexão com o contrato, fiquem atentos!!!!
+			//endereco muda a cada deploy  
+			//==============ALTERAR==============
 		   const endereco = '0xdc328F101261e85067C3eBFf259CD61059Da9BB6';
+		   //ABI: o contrato vem em JSON para que possa interpretado
+		   //==============P/ ALTERAR, DEPENDE SE MODIFICAR O CONTRATO PARA TESTE==============
+		   //dados(endereco e ABI) do contrato se matém inalterados após o DEPLOY, pois o contrato não poderá sofre mais alterações
            const abi = [
 	{
 		"inputs": [],
@@ -228,14 +233,14 @@
 	}
 ]
 		   
-
+			//variavel para interpretar o nosso contrato
 			var RBCContract = web3.eth.contract(abi)
-
+ 			// irá me  irformar que foi efetuado o deploy do contrato onde seu hash é
 			var rbc = RBCContract.at(endereco);  
 
-			
+				//Declaro evento exitente no contrato
 			   var RBCEvent = rbc.casoInfo();
-		
+				//O alerta aguarda até que esse evento seja emitido e o ative
 			   RBCEvent.watch(function (err, result) {
 				if (!err) {
 					alert("cadastro efetuado com sucesso");
@@ -245,7 +250,7 @@
 				}
 				});
 			  
-					 
+				//Uso o Id(#) dos botões e campos para referenciar os valores inseridos 
 				$("#button1").click(function() {
 					$("#loader").show();
 					rbc.inserirCaso($("#fNome").val(), $("#fIdade").val(),$("#fCPF").val(),

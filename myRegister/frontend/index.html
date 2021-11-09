@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">		
+		<title>myRegister-OCEAN</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<!-- ========     LIB WEB3JS          ======== -->
+		<script src="js/web3.min.js"></script>
+		
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="menu">
+				<h2>myRegister</h2>
+				
+				<ul>	
+                    <li> <a href="index.html" class="nounderline"> Cadastro </a> </li>
+                    <li> <a href="consulta.html" class="nounderline"> Consulta </a> </li>                  
+                    <li> <a href="sobre.html" class="nounderline"> Sobre </a> </li>
+				</ul>
+			</div>
+
+			<div class="content">
+                <div class="header">Cadastro do usuário.</div> 
+				
+				<div class="content-inner centralized">
+		
+                    <div class="campos" >
+
+						<img id="loader" src="./image/Double Ring-1s-200px.gif">
+						<label for="fNome" class="nome-campo">Nome</label>
+						<input id="fNome" placeholder="Nome" class="form-control" type="text">
+						<label for="fIdade" class="nome-campo">Idade</label>
+						<input id="fIdade" placeholder="Idade" class="form-control" type="text">
+						<label for="fCPF" class="nome-campo">Nº de celular</label>
+						<input id="fCPF" placeholder="Celular" class="form-control" type="text">
+						<label for="fCargo" class="nome-campo">Cargo</label>
+						<input id="fCargo"placeholder="Cargo" class="form-control" type="text">
+						<label for="fHash" class="nome-campo">Hash</label>
+						<input id="fHash"placeholder="Hash" class="form-control" type="text">
+
+						<button id="button1" class ="btn btn-green">Registrar usuário</button>
+
+					</div>
+					
+
+					
+				</div>
+				
+			</div>
+
+			
+			<br style="clear:both">
+			
+			<div class="footer">
+				Todos os direitos reservados para fins didáticos. Dev.: Wilbert Marins - instrutor no Ocean Brasil. 
+			</div>
+
+		</div>
+
+		<!-- ========     JQUERY          ======== -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<!-- ========     NOSSAS FUNÇÕES          ======== -->
+		<script type="module" src="js/scripts/main.js"></script>	
+
+
+
+	</body>
+
+</html>

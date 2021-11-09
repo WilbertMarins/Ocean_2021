@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">		
+		<title>myRegister-OCEAN</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<!-- ========     LIB WEB3JS          ======== -->
+		<script src="js/web3.min.js"></script>
+		
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="menu">
+				<h2>myRegister</h2>
+				
+				<ul>	
+                    <li> <a href="index.html" class="nounderline"> Cadastro </a> </li>
+                    <li> <a href="consulta.html" class="nounderline"> Consulta </a> </li>                  
+                    <li> <a href="sobre.html" class="nounderline"> Sobre </a> </li>
+				</ul>
+			</div>
+					
+
+			<div class="content">
+				<div class="content-inner">
+					<div class="header">Consulta do usuário.</div> 
+		
+                    <div class="campos">
+
+						<img id="loader" src="./image/Double Ring-1s-200px.gif">
+						<label for="fID" class="nome-campo">HASH do usuário</label>
+						<input id="fID"placeholder="Insira o hash do usuário" class="form-control" type="text">
+					
+						<button id="button2" class ="btn btn-green">Consultar usuário</button>
+					</div>
+					
+					
+					<h4 id="instructor">Os dados do usuário que buscamos serão mostrados aqui</h4>
+						
+					
+					
+					
+					<div id="barra"> </div>
+					
+				</div>
+
+				<div class="espacamento"></div>
+				
+			</div>
+
+			
+			<br style="clear:both">
+			
+			<div class="footer">
+				Todos os direitos reservados para fins didáticos. Dev.: Wilbert Marins - instrutor no Ocean Brasil. 
+			</div>
+
+		</div>
+
+		<!-- ========     JQUERY          ======== -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<!-- ========     NOSSAS FUNÇÕES          ======== -->
+		<script type="module" src="js/scripts/main.js"></script>
+
+
+	</body>
+	
+</html>

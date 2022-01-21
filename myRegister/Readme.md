@@ -2,7 +2,7 @@
 
 
 <p align="center" >
-  <img alt="myRegister" title="myRegister" src=".info/.JPG" />
+  <img alt="myRegister" title="myRegister" src=".info/example.JPG" />
 </p>
 <br>
 
@@ -56,7 +56,7 @@ O "My register" é um sistema desenvolvido com intuito de fornecer uma visão in
 
 - Efetuar deploy do contrato a partir do RemixIDE
   * Copiar os contratos e seus respectivos nomes devido a questão de dependência
-  * Compilar o contrato "aula09_11_21.sol"
+  * Compilar o contrato "aula.sol"
   <p align="center" >
   <img alt="Compilar" title="Compilar" src=".info/compilar.JPG" />
   </p>
@@ -86,7 +86,11 @@ O "My register" é um sistema desenvolvido com intuito de fornecer uma visão in
   <img alt="Sever" title="Server" src=".info/server.JPG" />
   </p>
   <br>  
-    * Com Live Server: Acesse uma das páginas e clique no icone "Go Live " no canto inferior esquerdo.
+  * Com Live Server: Acesse uma das páginas e clique no icone "Go Live " no canto inferior esquerdo.
+  <p align="center" >
+  <img alt="Sever" title="Server" src=".info/live.JPG" />
+  </p>
+  <br>  
 
  
 

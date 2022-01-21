@@ -10,12 +10,7 @@ var register = registerContract.at(endereco);
 
 //Declaro evento exitente no contrato
 var registerEvent = register.myUser();
-//O alerta aguarda até que esse evento seja emitido e o ative
-registerEvent.watch(function (err, result) {
-	if (!err) {
-		alert("cadastro efetuado com sucesso");
-	} 
-	});
+
 
 //Uso o Id(#) dos botões e campos para referenciar os valores inseridos 
 $("#button1").click(function() {
@@ -24,6 +19,7 @@ register.registerUser($("#fNome").val(), $("#fIdade").val(),$("#fCPF").val(),$("
     if(!error){
 		console.log("ok");
 		$("#loader").hide();
+        //O alerta aguarda até que esse evento seja emitido e o ative
         registerEvent.watch(function (err, result) {
             if (!err) {
                 alert("cadastro efetuado com sucesso");

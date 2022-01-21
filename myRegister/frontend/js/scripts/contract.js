@@ -1,7 +1,7 @@
 //Declaração das 2 variáveis mais significativa para conexão com o contrato, fiquem atentos!!!!
 //endereco muda a cada deploy  
 //==============ALTERAR==============
-export const endereco = '0xfaA81b3Bf419421790Da37564131E821F7828a5F';
+export const endereco = '0x2bf5482353A944eA6682ba4aB3Ddb3Cda6f30c6b';
 //ABI: o contrato vem no formato JSON para que possa ser interpretado
 //==============P/ ALTERAR, DEPENDE DA MODIFICAÇÃo DO CONTRATO PARA TESTE==============
 //dados(endereco e ABI) do contrato se matém inalterados após o DEPLOY, pois o contrato não poderá sofre mais alterações
